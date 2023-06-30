@@ -16,6 +16,3 @@ RUN apk update && apk add curl
 # do not copy the release folder
 COPY --from=builder /app/target/release/alt-server /app/
 CMD ["./alt-server"]
-
-
-
