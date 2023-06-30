@@ -18,7 +18,6 @@ COPY --from=builder /app/settings.toml /app
 # only copy the execute file to minimal the image size
 # do not copy the release folder
 COPY --from=builder /app/target/x86_64-unknown-linux-musl/release/alt-server /app/
-RUN chmod +x /app/alt-server
 CMD ["/app/alt-server"]
 
 
