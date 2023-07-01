@@ -4,6 +4,7 @@ WORKDIR /app
 COPY . /app
 RUN rustup default stable
 RUN rustup target add x86_64-unknown-linux-musl
+RUN apt-get update && apt-get install libssl-dev -y
 RUN RUSTFLAGS='-C link-arg=-s' cargo build --release --target x86_64-unknown-linux-musl
 # RUN cargo build
 # do not use slim image, will block when query database
