@@ -6,6 +6,8 @@ FROM ${BASE_IMAGE} AS builder
 # Add our source code.
 ADD --chown=rust:rust . ./
 
+RUN apt-get install pkg-config -y
+
 # Build our application.
 RUN cargo build --release
 
