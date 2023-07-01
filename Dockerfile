@@ -10,7 +10,7 @@ COPY . .
 
 RUN rustup target add x86_64-unknown-linux-musl
 
-RUN sudo apt-get update && apt-get install libssl-dev pkg-config musl-tools -y
+RUN sudo apt-get update && apt-get install libssl-dev pkg-config musl-tools libpq5 -y
 
 # Build our application.
 RUN cargo build --release --target=x86_64-unknown-linux-musl
