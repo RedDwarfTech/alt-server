@@ -1,4 +1,4 @@
-ARG BASE_IMAGE=messense/rust-musl-cross:latest
+ARG BASE_IMAGE=messense/rust-musl-cross:x86_64-musl
 
 # Our first FROM statement declares the build environment.
 FROM ${BASE_IMAGE} AS builder
