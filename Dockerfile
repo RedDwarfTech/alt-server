@@ -4,17 +4,11 @@ ARG BASE_IMAGE=messense/rust-musl-cross:x86_64-musl
 FROM ${BASE_IMAGE} AS builder
 
 # Add our source code.
-ADD --chown=rust:rust . ./
+WORKDIR /app
 
-RUN apt-get install pkg-config -y
+COPY . .
+
+RUN sudo apt-get update && apt-get install libssl-dev pkg-config musl-tools -y
 
 # Build our application.
-RUN cargo build --release
-
-# Now, we need to build our _real_ Docker container, copying in `using-diesel`.
-FROM alpine:latest
-RUN apk --no-cache add ca-certificates
-COPY --from=builder \
-    /home/rust/src/target/x86_64-unknown-linux-musl/release/using-diesel \
-    /usr/local/bin/
-CMD /usr/local/bin/using-diesel
+RUN cargo build --release --target=x86_64-unknown-linux-musl
