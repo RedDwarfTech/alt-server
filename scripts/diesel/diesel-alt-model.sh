@@ -19,6 +19,6 @@ diesel_ext --derive Insertable,Queryable,QueryableByName,Debug,Serialize,Deseria
 --add-table-name \
 --import-types "serde::Serialize" \
 --import-types "serde::Deserialize" \
---import-types "crate::model::diesel::cv::cv_schema::*" \
---schema-file "${PROJECT_DIR}"/src/model/diesel/cv/cv_schema.rs --model > "${PROJECT_DIR}"/src/model/diesel/cv/cv_models.rs
+--import-types "crate::model::diesel::alt::alt_schema::*" \
+--schema-file "${PROJECT_DIR}"/src/model/diesel/alt/alt_schema.rs --model > "${PROJECT_DIR}"/src/model/diesel/alt/alt_models.rs
 
