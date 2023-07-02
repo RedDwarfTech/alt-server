@@ -1,7 +1,13 @@
-[build]
-target = "x86_64-unknown-linux-musl"
+#[build]
+#target = "x86_64-unknown-linux-musl"
 
 [target.x86_64-unknown-linux-musl]
 # rustflags = ["-C", "target-feature=+crt-static"]
-rustflags = ["-C", "link-arg=-Wl,-undefined,dynamic_lookup"]
+rustflags = [
+    "-C", "target-feature=+crt-static",
+    "-C", "link-arg=-static-libgcc",
+    "-C", "link-arg=-static-libstdc++",
+]
+# dynamic_lookup 是针对 macOS 上的配置选项。对于其他操作系统如 Linux 或 Windows，可能需要使用不同的选项或参数。
+# rustflags = ["-C", "link-arg=-Wl,-undefined,dynamic_lookup"]
 linker = "musl-gcc"
