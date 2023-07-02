@@ -21,7 +21,5 @@ WORKDIR /app
 ENV ROCKET_ADDRESS=0.0.0.0
 # ENV ROCKET_PORT=11014
 #
-# only copy the execute file to minimal the image size
-# do not copy the release folder
 COPY --from=builder /app/target/x86_64-unknown-linux-musl/release/alt-server /app/
 CMD ["./alt-server"]
