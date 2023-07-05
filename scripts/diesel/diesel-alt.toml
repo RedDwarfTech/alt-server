@@ -5,6 +5,7 @@ file = "../../src/model/diesel/alt/alt_schema.rs"
 with_docs = false
 
 filter = { only_tables = [
-    "alt_tag"
+    "alt_tag",
+    "alt_app"
 ] }
 
