@@ -23,4 +23,5 @@ pub struct AltApp {
     pub name: String,
     pub created_time: i64,
     pub updated_time: i64,
+    pub description: String
 }

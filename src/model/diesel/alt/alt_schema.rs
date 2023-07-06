@@ -4,6 +4,7 @@ table! {
         name -> Varchar,
         created_time -> Int8,
         updated_time -> Int8,
+        description -> Varchar
     }
 }
 
