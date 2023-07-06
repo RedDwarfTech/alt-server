@@ -11,6 +11,7 @@ use controller::{
 pub mod controller;
 pub mod model;
 pub mod service;
+pub mod common;
 
 #[actix_web::main]
 async fn main() -> std::io::Result<()> {
@@ -19,7 +20,7 @@ async fn main() -> std::io::Result<()> {
             .configure(alt_app_controller::config)
             .configure(health_controller::config)
     })
-    .bind(("0.0.0.0", 8080))?
+    .bind(("0.0.0.0", 8000))?
     .run()
     .await
 }

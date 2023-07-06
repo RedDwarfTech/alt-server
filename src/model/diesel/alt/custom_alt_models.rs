@@ -16,3 +16,11 @@ pub struct AltTag {
     pub updated_time: i64,
 }
 
+#[derive(Insertable,Queryable,QueryableByName,Debug,Serialize,Deserialize,Default,Clone)]
+#[diesel(table_name = alt_app)]
+pub struct AltApp {
+    pub id: i64,
+    pub name: String,
+    pub created_time: i64,
+    pub updated_time: i64,
+}
